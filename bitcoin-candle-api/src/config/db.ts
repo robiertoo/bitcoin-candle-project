@@ -1,5 +1,7 @@
 import { connect } from 'mongoose';
+import { config } from 'dotenv';
 
-const connectToMongoDB = async() => {
-    // await connect();
+export const connectToMongoDB = async() => {
+    config();
+    await connect(process.env.MONGODB_CONNECTION_URL);
 }
